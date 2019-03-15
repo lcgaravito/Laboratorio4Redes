@@ -2,8 +2,26 @@
   "name": "Laboratorio4",
   "version": "1.0.0",
   "description": "",
-  "main": "server/main.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcgaravito/Laboratorio4Redes.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lcgaravito/Laboratorio4Redes/issues"
+  },
+  "homepage": "https://github.com/lcgaravito/Laboratorio4Redes#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
 }
