@@ -1,0 +1,9 @@
+{
+  "name": "Laboratorio4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/main.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
