@@ -8,5 +8,12 @@
   </head>
   <body>
     <h1>My App</h1>
+    <div id="messages"></div>
+    <br>
+    <form onsubmit="return addMessage(this)">
+      <input type="text" id="user" placeholder="Tu nombre">
+      <input type="text" id="texto" placeholder="Cuéntanos algo...">
+      <input type="submit" value="Enviar!">
+    </form>
   </body>
 </html>

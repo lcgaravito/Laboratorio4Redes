@@ -3,6 +3,8 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+var ids = 0;
+
 app.use(express.static('public'));
 
 app.get('/hello', function(req, res){
@@ -10,11 +12,13 @@ app.get('/hello', function(req, res){
 });
 
 io.on('connection', function(socket){
-  console.log('Se ha conectado un cliente');
-  socket.emit('messages', {
-    id: 1,
-    text: "Soy un mensaje.",
-    author: "Luis"
+  ids++;
+  console.log('Se ha conectado un cliente vía sockets');
+  console.log(`Número de clientes conectados: ${ids}`);
+  socket.emit('messages', messages);
+  socket.on('new-message', function(data){
+    messages.push(data);
+    io.sockets.emit('messages', messages);
   });
 });
 
@@ -26,12 +30,6 @@ var messages = [
   {
     author: "Luis",
     text: "Hola mundo"
-  },{
-    author: "Pedro",
-    text: "Hola mundo cruel"
-  },{
-    author: "Paco",
-    text: "Hola todos"
   }
 ];
 
