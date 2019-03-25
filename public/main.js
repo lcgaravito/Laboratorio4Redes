@@ -1,8 +1,12 @@
 var socket = io.connect('http://localhost:8080', { 'forceNew': true });
 
-socket.on('messages', function(data) {
+socket.on('autorizacion', function(data) {
     console.log(data);
-    render(data);
+    if (data.auth == "true") {
+        addVideo();
+    } else {
+        alert("Usuario o contraseña incorrecta");
+    }
 });
 
 function render(data) {
@@ -13,6 +17,13 @@ function render(data) {
             </div>`);
     }).join(" ");
     document.getElementById("messages").innerHTML = html;
+}
+
+function addVideo() {
+    var html = `<video id="videoPlayer" controls muted="muted" autoplay> 
+                    <source src="http://localhost:8080/video" type="video/mp4">
+                </video>`;
+    document.getElementById("frame").innerHTML = html;
 }
 
 function addMessage(e) {
